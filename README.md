@@ -20,7 +20,7 @@ Objective: Investigate effects of default configurations
 Estimated completion time: 1-2 hours
 
 * Create two S3 buckets (sensitive-data and logs) and upload two files (objects) to both buckets
-* Create two IAM roles and one IAM user
+* Create two IAM roles (application, firewall) and one IAM user (delivery)
 * Demonstrate full, internal access by all IAM principals in the IAM access simulator
 * Demonstrate that external principals do not have access to objects in the bucket
 
@@ -66,12 +66,12 @@ Objective: Limit internal access to the sensitive-data bucket using S3 bucket po
 Estimated completion time: 2-4 hours
 
 * Explain what a resource policy is, that they don't exist by default, and that the default be-havior is to allow internal access
-* Create a bucket policy that allows only the application role and ci user to read and write data to the sensitive-data bucket
+* Create a bucket policy that allows only the application role and delivery user to read and write data to the sensitive-data bucket
 * Demonstrate the application role still has access to the sensitive-data bucket using the IAM access simulator
-* Demonstrate the ci user still has access to the sensitive-data bucket using the IAM access simulator – this is (probably) unexpected!
-* Reinforce the access control decision workflow and point out that unless there is an ex-plicit deny by the bucket policy, then the IAM policy attached to ci grants access.
+* Demonstrate the delivery user still has access to the sensitive-data bucket using the IAM access simulator – this is (probably) unexpected!
+* Reinforce the access control decision workflow and point out that unless there is an explicit deny by the bucket policy, then the IAM policy attached to delivery grants access.
 * Update the bucket policy to deny every principal that is not application
-* Demonstrate the ci user no longer has access to the sensitive-data bucket using the IAM access simulator 
+* Demonstrate the delivery user no longer has access to the sensitive-data bucket using the IAM access simulator 
 
 Takeaways:
 * Access to particular resources can be limited using S3 bucket policies
