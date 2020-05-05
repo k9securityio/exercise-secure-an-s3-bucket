@@ -18,5 +18,5 @@ use of the `s3:GetObject` and `s3:PutObject` API actions with a resource-specifi
 
 Bucket ARNs:
  
-* `arn:aws:s3:::sensitive-data-ABC`
+* `arn:aws:s3:::sensitive-data-ABC`, e.g. `arn:aws:s3:::sensitive-data-26d66ba1`
 * `arn:aws:s3:::logs-DEF`
