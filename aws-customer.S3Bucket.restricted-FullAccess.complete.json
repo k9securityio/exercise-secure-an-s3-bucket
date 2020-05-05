@@ -12,8 +12,8 @@
             },
             "Action": "s3:*",
             "Resource": [
-                "arn:aws:s3:::sensitive-data-REPLACEME/*",
-                "arn:aws:s3:::sensitive-data-26d66ba1/*"
+                "arn:aws:s3:::REPLACEME_SENSITIVE_BUCKET",
+                "arn:aws:s3:::REPLACEME_SENSITIVE_BUCKET/*"
             ]
         },
         {
@@ -22,8 +22,8 @@
             "Principal": "*",
             "Action": "s3:*",
             "Resource": [
-                "arn:aws:s3:::sensitive-data-REPLACEME/*",
-                "arn:aws:s3:::sensitive-data-26d66ba1/*"
+                "arn:aws:s3:::REPLACEME_SENSITIVE_BUCKET",
+                "arn:aws:s3:::REPLACEME_SENSITIVE_BUCKET/*"
             ],
             "Condition": {
                 "ArnNotEquals": {
