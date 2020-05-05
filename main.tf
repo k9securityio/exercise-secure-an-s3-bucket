@@ -55,3 +55,8 @@ resource "aws_iam_role_policy_attachment" "firewall_S3FullAccess" {
 resource "aws_iam_user" "delivery" {
   name = "delivery"
 }
+
+resource "aws_iam_user_policy_attachment" "delivery_Admin" {
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+  user = aws_iam_user.delivery.name
+}
