@@ -28,7 +28,8 @@
             "Condition": {
                 "ArnNotEquals": {
                     "aws:PrincipalArn": [
-                        "arn:aws:iam::REPLACEME_ACCT_ID:role/application"
+                        "arn:aws:iam::REPLACEME_ACCT_ID:role/application",
+                        "REPLACEME_ADMIN"
                     ]
                 }
             }
