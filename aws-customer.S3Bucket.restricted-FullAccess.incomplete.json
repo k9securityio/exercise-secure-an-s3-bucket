@@ -1,0 +1,20 @@
+{
+    "Version": "2012-10-17",
+    "Id": "VeryRestrictiveFullAccessPolicy",
+    "Statement": [
+        {
+            "Sid": "AllowRestrictedPrincipals",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::REPLACEME_ACCT_ID:role/application"
+                ]
+            },
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::sensitive-data-REPLACEME/*",
+                "arn:aws:s3:::sensitive-data-26d66ba1/*"
+            ]
+        }
+    ]
+}
