@@ -1,7 +1,7 @@
 # Steps to complete Milestone 3
 
 Detach the `S3FullAccess` policy from the firewall role:
-`aws-vault exec k9-test-small-admin -- /usr/local/bin/aws iam detach-role-policy --role-name firewall --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess`
+`/usr/local/bin/aws iam detach-role-policy --role-name firewall --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess`
 
 Update the log bucket arn in the `aws-customer.IAM.log-writer.json` file with the name of the logs bucket
 
