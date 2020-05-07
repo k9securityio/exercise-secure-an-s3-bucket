@@ -4,7 +4,7 @@ In this exercise, we will learn how to use AWS security policies and configurati
 and provide access to only the intended people and applications - a 
 [Least Privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) access control policy.
 
-Scenario: Secure sensitive data in an S3 bucket that should only be accessible by a single application.
+Challenge: Secure sensitive data in an S3 bucket that should only be accessible by a single application.
 
 This exercise uses several AWS security tools to understand and improve the access to an AWS S3 bucket.
 
@@ -12,6 +12,14 @@ Resources and tools used in this exercise:
  
 * An AWS Account
 * (optional) The AWS command-line interface (cli)
+
+Solution: If you would like to follow along with a solution to this challenge, watch the
+['Secure an S3 bucket' Phoenix DevOps meetup](https://youtu.be/WIZPSuSoQq4).  
+
+The solution steps used in that meetup are provided in this repository.
+There are many other approaches to completing this exercise using other tools.  Our approach using the AWS cli was
+intended to very 'simple' and direct using a widely adopted tool. If you complete this exercise using
+CloudFormation, Terraform, or another tool, we'd love to see your solution and review a pull request.
   
 ## Milestone 1 - Investigate defaults
  
@@ -23,6 +31,8 @@ Estimated completion time: 1-2 hours
 * Create two IAM roles (application, firewall) and one IAM user (delivery)
 * Demonstrate full, internal access by all IAM principals in the IAM access simulator
 * Demonstrate that external principals do not have access to objects in the bucket
+
+Solution Steps: [Milestone 1](steps-milestone-1.md)
 
 Takeaways:
 
@@ -55,6 +65,8 @@ Estimated completion time: 1-3 hours
 * Create a custom IAM policy for the firewall role that only allows that role to access to the logs bucket
 * Demonstrate the firewall role no longer has access to sensitive-data, but still has access to the logs bucket using the IAM access simulator
 
+Solution Steps: [Milestone 3](steps-milestone-3.md)
+
 Takeaways:
 * Access to particular resources can be limited using IAM policies
 * Using AWS managed IAM policies will grant access to all resources for a service such as S3
@@ -72,6 +84,8 @@ Estimated completion time: 2-4 hours
 * Reinforce the access control decision workflow and point out that unless there is an explicit deny by the bucket policy, then the IAM policy attached to delivery grants access.
 * Update the bucket policy to deny every principal that is not application
 * Demonstrate the delivery user no longer has access to the sensitive-data bucket using the IAM access simulator 
+
+Solution Steps: [Milestone 4](steps-milestone-4.md)
 
 Takeaways:
 * Access to particular resources can be limited using S3 bucket policies
