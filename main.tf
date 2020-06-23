@@ -3,15 +3,21 @@ provider "aws" {
 }
 
 resource "random_id" "testing_suffix" {
-  byte_length = 4
+  byte_length = 1
+}
+
+locals {
+  suffix = random_id.testing_suffix.hex
 }
 
 resource "aws_s3_bucket" "restricted" {
-  bucket = "sensitive-data-${random_id.testing_suffix.hex}"
+  bucket = "sensitive-data-${local.suffix}"
+  force_destroy = true
 }
 
 resource "aws_s3_bucket" "logs" {
-  bucket = "logs-${random_id.testing_suffix.hex}"
+  bucket = "logs-${local.suffix}"
+  force_destroy = true
 }
 
 locals {
@@ -59,4 +65,12 @@ resource "aws_iam_user" "delivery" {
 resource "aws_iam_user_policy_attachment" "delivery_Admin" {
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
   user = aws_iam_user.delivery.name
+}
+
+output "restricted_bucket_id" {
+  value = aws_s3_bucket.restricted.id
+}
+
+output "logs_bucket_id" {
+  value = aws_s3_bucket.logs.id
 }
