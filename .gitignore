@@ -3,3 +3,5 @@ terraform.tfstate*
 tf-test-plan.out
 .kitchen/
 infra-change*.tfplan
+*.orig
+file-*.txt
