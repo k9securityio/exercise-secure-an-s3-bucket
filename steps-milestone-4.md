@@ -8,13 +8,13 @@ Sigh.
 Let's control access at the resource so that we can protect sensitive data without
 rewriting every IAM policy.  Since that's not even possible in the general case.
 
-Replace the `REPLACEME_SENSITIVE_BUCKET` tokens in the policy file with the suffix for your own bucket.
+Replace the `REPLACEME_SENSITIVE_BUCKET` tokens in the policy files with the suffix for your own bucket.
 `sed -i .orig 's/REPLACEME_SENSITIVE_BUCKET/sensitive-data-f8/g' aws-customer.S3Bucket.*.json`
 
-Replace the `REPLACEME_ACCT_ID` tokens in the `` file with your AWS account id.  You can use a command like:
+Replace the `REPLACEME_ACCT_ID` tokens in the policy files file with your AWS account id.  You can use a command like:
 `sed -i .orig 's/REPLACEME_ACCT_ID/720226181253/g' aws-customer.S3Bucket.*.json`
  
-Replace the `REPLACEME_ADMIN` token in the `` file with the ARN of your own IAM principal.  
+Replace the `REPLACEME_ADMIN` token in the `aws-customer.S3Bucket.restricted-FullAccess.complete.json` file with the ARN of your own IAM principal.  
 
 You can use a command like:
 `sed -i .orig 's/REPLACEME_ADMIN/arn:aws:iam::720226181253:role\/k9-test-small-admin/g' aws-customer.S3Bucket.*.json`
