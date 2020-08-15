@@ -8,7 +8,7 @@
         ],
         "Resource": [
           "arn:aws:s3:::logs-REPLACEME/*",
-          "arn:aws:s3:::logs-26d66ba1/*"
+          "arn:aws:s3:::logs-f8/*"
         ]
       }
     ]
