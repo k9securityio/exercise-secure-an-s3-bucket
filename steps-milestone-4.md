@@ -9,7 +9,7 @@ Let's control access at the resource so that we can protect sensitive data witho
 rewriting every IAM policy.  Since that's not even possible in the general case.
 
 Replace the `REPLACEME_SENSITIVE_BUCKET` tokens in the policy file with the suffix for your own bucket.
-`sed -i .orig 's/REPLACEME_SENSITIVE_BUCKET/sensitive-data-26d66ba1/g' aws-customer.S3Bucket.*.json`
+`sed -i .orig 's/REPLACEME_SENSITIVE_BUCKET/sensitive-data-f8/g' aws-customer.S3Bucket.*.json`
 
 Replace the `REPLACEME_ACCT_ID` tokens in the `` file with your AWS account id.  You can use a command like:
 `sed -i .orig 's/REPLACEME_ACCT_ID/720226181253/g' aws-customer.S3Bucket.*.json`
@@ -20,16 +20,16 @@ You can use a command like:
 `sed -i .orig 's/REPLACEME_ADMIN/arn:aws:iam::720226181253:role\/k9-test-small-admin/g' aws-customer.S3Bucket.*.json`
  
 Now, configure the sensitive data bucket with the policy:
-`aws s3api put-bucket-policy --bucket sensitive-data-26d66ba1 --policy file://aws-customer.S3Bucket.restricted-FullAccess.incomplete.json`
+`aws s3api put-bucket-policy --bucket sensitive-data-f8 --policy file://aws-customer.S3Bucket.restricted-FullAccess.incomplete.json`
 
 Navigate to the AWS console and take a look at the contents of your bucket:
-e.g. `https://s3.console.aws.amazon.com/s3/buckets/sensitive-data-26d66ba1/?region=us-east-1`
+e.g. `https://s3.console.aws.amazon.com/s3/buckets/sensitive-data-f8/?region=us-east-1`
 
-or `aws s3api list-objects --bucket sensitive-data-26d66ba1`
+or `aws s3api list-objects --bucket sensitive-data-f8`
 
 That shouldn't be allowed!  We need to DENY access to the bucket for everyone but the `application` role.
 
-`aws s3api put-bucket-policy --bucket sensitive-data-26d66ba1 --policy file://aws-customer.S3Bucket.restricted-FullAccess.complete.json`
+`aws s3api put-bucket-policy --bucket sensitive-data-f8 --policy file://aws-customer.S3Bucket.restricted-FullAccess.complete.json`
 
 Now when you run `list-objects`, you should get 'Access Denied': 
 
@@ -42,5 +42,5 @@ Now simulate access again for the `delivery` user again.  The get and put object
 
 Bucket ARNs:
  
-* `arn:aws:s3:::sensitive-data-ABC`, e.g. `arn:aws:s3:::sensitive-data-26d66ba1`
+* `arn:aws:s3:::sensitive-data-ABC`, e.g. `arn:aws:s3:::sensitive-data-f8`
 * `arn:aws:s3:::logs-DEF`
